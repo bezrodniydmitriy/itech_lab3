@@ -1,0 +1,26 @@
+var max = 0;
+var min = 0;
+var element = 0;
+
+var tr = document.getElementsByTagName('tr');
+var name = tr[0].getElementsByTagName('th');
+
+for (var i = 1; i < tr.length; i++) {
+    var td = tr[i].getElementsByTagName('td');
+    if (td[3]) {
+        if (+td[3].innerText > max) {
+            max = +td[3].innerText;
+            element = td;
+        }
+    }
+}
+for (var i = 1; i < tr.length; i++) {
+    var td = tr[i].getElementsByTagName('td');
+    if (td[5]) {
+        if (+td[5].innerText < min) {
+            min = +td[5].innerText;
+            element = td;
+        }
+    }
+}
+alert("Max: " + max + " Min: " + min);
